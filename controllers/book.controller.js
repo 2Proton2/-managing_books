@@ -8,7 +8,8 @@ async function addBook(req, res){
             let result = await book_instance_document.save();
             console.log('result => ', result)
             res.status(201).send({
-                message: 'Book added successfully in the database'
+                message: 'Book added successfully in the database',
+                instance: result
             })
         }
         else{
