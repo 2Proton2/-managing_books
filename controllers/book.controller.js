@@ -77,7 +77,7 @@ async function findAllBook(req, res){
 async function updateOneBook(req, res){
     try{
         const book_id = req.params.id
-        const field = req.body.name;
+        const field = req.body.field;
         const value = req.body.value;
 
         let result = await $book_db_service.findByIdAndUpdate(
