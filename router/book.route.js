@@ -7,6 +7,6 @@ router.post('/add-book', bookController.addBook);
 router.get('/getAll', bookController.findAllBook);
 router.get('/get/:id', bookController.findSpecificBook);
 router.patch('/update/:id', bookController.updateOneBook);
-router.post('/delete/:id', bookController.deleteOneBook)
+router.delete('/delete/:id', bookController.deleteOneBook)
 
 module.exports = router;
