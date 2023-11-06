@@ -9,6 +9,7 @@ This project is a RESTful API developed with Node.js and Express.js for managing
 - Retrieve a specific book by its ID
 - Update book information based on ID
 - Delete a book based on ID
+- Logging with Winston for monitoring and debugging
 
 ## Getting Started
 
@@ -20,4 +21,3 @@ Follow the steps below to set up and run the Book Management API on your local m
 2. perform "npm i"
 3. setup your own config.env specifying @DB_URL and @PORT
 4. node index.js and you are good to go.
-5. Logging with Winston for monitoring and debugging
