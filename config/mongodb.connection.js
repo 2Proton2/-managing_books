@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const DB_URL = process.env.DB_URL;
-const DB_NAME = `book`;
+const DB_NAME = `book_management`;
 
 /**
  * Handshake with @DB_NAME DB
