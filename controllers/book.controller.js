@@ -7,7 +7,7 @@ async function addBook(req, res){
             const book_instance_document = new $book_db_service(book_instance);
             let result = await book_instance_document.save();
             console.log('result => ', result)
-            res.status(201).send({
+            res.status(201).json({
                 message: 'Book added successfully in the database',
                 instance: result
             })
@@ -51,7 +51,7 @@ async function findSpecificBook(req, res){
     }
 }
 
-async function findAllBook(res){
+async function findAllBook(req, res){
     try{
         let entries = await $book_db_service.find({});
         if(entries){
