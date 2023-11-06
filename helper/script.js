@@ -2,7 +2,7 @@ const bookSchema = require('../models/books.model');
 
 
 /**
- * car data insertion
+ * book data insertion
  */
 async function dataInsertion(){
     try{
