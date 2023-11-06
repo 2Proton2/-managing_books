@@ -16,6 +16,7 @@ require('./config/mongodb.connection');
  */
 app.use(express.json());
 app.use(body_parser.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended:true }))
 
 /**
  * specifying the endpoints
