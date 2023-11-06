@@ -16,9 +16,7 @@ Follow the steps below to set up and run the Book Management API on your local m
 
 ### Installation
 
-1. Clone the repository to your local machine:
-
-   git clone https://github.com/yourusername/managing_books.git
+1. Clone the repository to your local machine
 2. perform "npm i"
 3. setup your own config.env specifying @DB_URL and @PORT
 4. node index.js and you are good to go.
