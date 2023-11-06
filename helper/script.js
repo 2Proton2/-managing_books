@@ -16,11 +16,11 @@ async function dataInsertion(){
 
             let bookInstance = new bookSchema(obj);
             await bookInstance.save();
-            console.log("Added Book Successfully, ", i);
+            $logger_service.info("Added Book Succefully", i)
         }
     }
     catch(err){
-        console.log(err);
+        $logger_service.console.error(err);
     }
 }
 

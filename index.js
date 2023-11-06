@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' })
 const PORT = process.env.PORT;
 const mongoose = require('mongoose');
+const $logger_service = require('./config/logger.config');
 
 /**
  * database config
@@ -28,7 +29,7 @@ app.use('/book', require('./router/book.route'));
  * Hey buddy! I am listenning at @PORT
  */
 const server = app.listen(PORT, () => {
-    console.log(`Serving listening at port ${PORT}`);
+    $logger_service.info(`Serving listening at port ${PORT}`);
 })
 
 /**
@@ -38,13 +39,12 @@ process.on('SIGINT', () => {
     server.close(() => {
         mongoose.connection.close()
         .then(() => {
-            console.log('connection closed');
+            $logger_service.info(`connection closed`);
             process.exit(0);
         })
         .catch((err) => {
-            console.log(`error : ${err}`)
-        })
-        console.log('clsoee');
+            $logger_service.error(`${err}`);
+        });
     });
 });
 
@@ -52,11 +52,11 @@ process.on('SIGTERM', () => {
     server.close(() => {
         mongoose.connection.close()
         .then(() => {
-            console.log('connection closed');
+            $logger_service.info(`connection closed`);
             process.exit(0);
         })
         .catch((err) => {
-            console.log(`error : ${err}`)
+            $logger_service.error(`${err}`);
         });
     });
 });

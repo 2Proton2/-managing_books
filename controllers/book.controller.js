@@ -1,4 +1,5 @@
 const $book_db_service = require('../models/books.model');
+const $logger_service = require('../config/logger.config');
 
 async function addBook(req, res){
     try{
@@ -6,7 +7,7 @@ async function addBook(req, res){
         if(book_instance){
             const book_instance_document = new $book_db_service(book_instance);
             let result = await book_instance_document.save();
-            console.log('result => ', result)
+            $logger_service.info(result)
             res.status(201).json({
                 message: 'Book added successfully in the database',
                 instance: result
@@ -17,6 +18,7 @@ async function addBook(req, res){
         }
     }
     catch(err){
+        $logger_service.error(err)
         if(err == `Enter valid Details`){
             res.status(400).send({
                 message: `${err}`
@@ -40,6 +42,7 @@ async function findSpecificBook(req, res){
         }
     }
     catch(err){
+        $logger_service.error(err)
         if(err == `Book doesn't exist`){
             res.status(204).send({
                 message: `${err}`
@@ -64,6 +67,7 @@ async function findAllBook(req, res){
         }
     }
     catch(err){
+        $logger_service.error(err)
         res.status(422).send({
             message: `${err}`
         });
@@ -82,7 +86,7 @@ async function updateOneBook(req, res){
             { new: true }
         );
         if(result){
-            console.log('result => ',result);
+            $logger_service.info(result)
             res.status(200).json({
                 instance: result
             });
@@ -92,6 +96,7 @@ async function updateOneBook(req, res){
         }
     }
     catch(err){
+        $logger_service.error(err)
         if(err == `Book doesn't exist`){
             res.status(204).send({
                 message: `${err}`
@@ -120,6 +125,7 @@ async function deleteOneBook(req, res){
         }
     }
     catch(err){
+        $logger_service.error(err)
         if(err == `Book doesn't exist`){
             res.status(204).send({
                 message: `${err}`
